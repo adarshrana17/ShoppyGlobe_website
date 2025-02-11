@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+.btn {
+    @apply mt-4 text-white px-6 py-2 rounded bg-gradient-to-r from-purple-600 to-indigo-700 shadow-lg;
+}
+
+.btn:active {
+    transform: scale(1.02);
+}
+.rmv-btn:active {
+    transform: scale(1.04);
+}
