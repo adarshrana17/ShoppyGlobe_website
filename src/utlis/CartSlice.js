@@ -7,16 +7,18 @@ const cartSlice = createSlice({
     },
     reducers : {
         addItem: (state, action) => {
-            const product = action.payload;
-            state.items.push({
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                image: product.image || product.images?.[0],
-                description: product.description,
-                brand: product.brand,
-                rating: product.rating
-            });
+
+            let item = state.items.find(
+                (item) => item.id == action.payload.id
+            );
+            const data = {...action.payload, quantity: 1}
+
+            if(!item){
+                 state.items.push(data)
+        }
+            else{
+                item.quantity++;
+            }
         },
         
         removeItem: (state, action) => {
